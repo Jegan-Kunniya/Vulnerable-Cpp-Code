@@ -43,7 +43,7 @@ namespace HttpServer {
 }
 
 int main(void) {
-  cout << "[*] Server is listening on *:8080" << endl;;
-  Http::listenAndServe<HttpServer::VulnerableHandler>("*:8080");
+  Pistache::Address addr(Pistache::Ipv4::any(), Pistache::Port(8080));
+  Http::listenAndServe<HttpServer::VulnerableHandler>(addr);
   return 0;
 }
